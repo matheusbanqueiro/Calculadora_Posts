@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Calculadora Pots',
   description: 'calcular os preços dos posts',
+  
 }
 
 export default function RootLayout({
