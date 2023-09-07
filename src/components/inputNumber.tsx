@@ -46,7 +46,7 @@ export default function inputNumber() {
           <div className="flex items-center">
             <button
               onClick={decrementQuantSingle}
-              className="hover:bg-secondary bg-white text-primary p-2 rounded-full mr-2"
+              className="hover:bg-secondary bg-white text-primary p-2 rounded-xl mr-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -73,11 +73,11 @@ export default function inputNumber() {
                 appearance: "textfield",
                 MozAppearance: "textfield",
               }}
-              className="hover:border hover:border-secondary border border-primary w-12 bg-primary text-white px-2 py-1 rounded-lg shadow-md text-center focus:border-secondary focus:ring-2 focus:ring-secondary"
+              className="hover:border hover:border-secondary border border-primary w-12 bg-primary text-white px-2 py-1 rounded-xl shadow-md text-center focus:border-secondary focus:ring-2 focus:ring-secondary"
             />
             <button
               onClick={incrementQuantSingle}
-              className="hover:bg-secondary bg-white text-primary p-2 rounded-full ml-2"
+              className="hover:bg-secondary bg-white text-primary p-2 rounded-xl ml-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +104,7 @@ export default function inputNumber() {
           <div className="flex items-center">
             <button
               onClick={decrementQuantCarrossel}
-              className="hover:bg-secondary bg-white text-primary p-2 rounded-full mr-2"
+              className="hover:bg-secondary bg-white text-primary p-2 rounded-xl mr-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -131,12 +131,12 @@ export default function inputNumber() {
                 appearance: "textfield",
                 MozAppearance: "textfield",
               }}
-              className="hover:border hover:border-secondary border border-primary w-12 bg-primary text-white px-2 py-1 rounded-lg shadow-md text-center focus:border-secondary focus:ring-2 focus:ring-secondary"
+              className="hover:border hover:border-secondary border border-primary w-12 bg-primary text-white px-2 py-1 rounded-xl shadow-md text-center focus:border-secondary focus:ring-2 focus:ring-secondary"
             />
 
             <button
               onClick={incrementQuantCarrossel}
-              className="hover:bg-secondary bg-white text-primary p-2 rounded-full ml-2"
+              className="hover:bg-secondary bg-white text-primary p-2 rounded-xl ml-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -161,10 +161,10 @@ export default function inputNumber() {
         <Button onClick={handleCalculateTotal} />
       </div>
       {showWarning && (
-        <div className="fixed inset-0 flex flex-col-reverse md:flex-row items-center justify-center z-50">
+        <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className="modal-overlay fixed inset-0 bg-neutral-900 opacity-50"></div>
-          <div className="modal-content overflow-auto bg-background_light text-primary w-80 p-6 rounded-lg z-0 absolute">
-            <div className="text-center top-0">
+          <div className="modal-content bg-background_light text-primary w-80 p-6 rounded-xl z-0 relative">
+            <div className="text-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-20 h-20 text-red-500 mx-auto"
@@ -186,24 +186,16 @@ export default function inputNumber() {
                 Pelo menos um campo deve ter um valor para calcular.
               </p>
             </div>
-            <div className="absolute top-0 right-0">
-              <div className="cursor-pointer rounded-full bg-red-500 hover:bg-red-600 flex justify-center items-center w-12 h-12">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  onClick={() => setShowWarning(false)}
-                  className="w-6 h-6 text-white"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </div>
+            <div className="mt-6 flex justify-center items-center">
+              <button
+                onClick={() => {
+                  setShowWarning(false);
+                  window.location.reload(); // Recarrega a página
+                }}
+                className="px-4 py-2 rounded-xl bg-red-500 hover:bg-red-600 text-white"
+              >
+                Fechar
+              </button>
             </div>
           </div>
         </div>

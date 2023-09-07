@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body className="bg-background_dark  text-center">{children}</body>
+      <body className="text-center min-h-screen bg-background_dark flex justify-center items-center p-4">{children}</body>
     </html>
   )
 }

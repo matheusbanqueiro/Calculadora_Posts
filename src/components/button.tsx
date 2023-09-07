@@ -9,7 +9,7 @@ function Button({ onClick }: ButtonProps) {
   return (
     <button
       onClick={onClick}
-      className="border border-secondary text-white py-3 w-full px-6  rounded-lg hover:bg-secondary hover:text-primary transition duration-300 ease-in-out"
+      className="border border-secondary text-white py-3 w-full px-6 rounded-xl hover:bg-secondary hover:text-primary transition duration-300 ease-in-out"
     >
       Calcular Total
     </button>
