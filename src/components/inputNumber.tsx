@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { calcularTotal } from "@/utils";
+import Button from "./button";
 
 export default function inputNumber() {
   const [quantSingle, setQuantSingle] = useState(0);
@@ -37,10 +38,10 @@ export default function inputNumber() {
   };
   return (
     <>
-      <div className="mb-6">
-        <div className="w-full flex items-center justify-between">
+      <div className="mb-6 flex ">
+        <div className="w-1/2 flex items-center justify-between mr-4 flex-col ">
           <label htmlFor="quantSingle" className="text-lg text-white mb-2">
-            Quantidade de Posts Single por Semana:
+            Posts Single
           </label>
           <div className="flex items-center">
             <button
@@ -72,7 +73,7 @@ export default function inputNumber() {
                 appearance: "textfield",
                 MozAppearance: "textfield",
               }}
-              className="hover:border hover:border-secondary w-12 bg-primary text-white px-2 py-1 rounded-lg shadow-md text-center focus:border-secondary focus:ring-2 focus:ring-secondary"
+              className="hover:border hover:border-secondary border border-primary w-12 bg-primary text-white px-2 py-1 rounded-lg shadow-md text-center focus:border-secondary focus:ring-2 focus:ring-secondary"
             />
             <button
               onClick={incrementQuantSingle}
@@ -95,12 +96,10 @@ export default function inputNumber() {
             </button>
           </div>
         </div>
-      </div>
 
-      <div className="mb-6">
-        <div className="w-full flex items-center justify-between">
+        <div className="w-1/2 flex items-center justify-between flex-col">
           <label htmlFor="quantCarrossel" className="text-lg text-white mb-2">
-            Quantidade de Posts Carrossel por Semana:
+            Posts Carrossel
           </label>
           <div className="flex items-center">
             <button
@@ -132,7 +131,7 @@ export default function inputNumber() {
                 appearance: "textfield",
                 MozAppearance: "textfield",
               }}
-              className="hover:border hover:border-secondary w-12 bg-primary text-white px-2 py-1 rounded-lg shadow-md text-center focus:border-secondary focus:ring-2 focus:ring-secondary"
+              className="hover:border hover:border-secondary border border-primary w-12 bg-primary text-white px-2 py-1 rounded-lg shadow-md text-center focus:border-secondary focus:ring-2 focus:ring-secondary"
             />
 
             <button
@@ -156,50 +155,59 @@ export default function inputNumber() {
             </button>
           </div>
         </div>
-        <div className="mb-6">
-          <button
-            onClick={handleCalculateTotal}
-            className="border border-secondary text-white py-3 px-6 rounded-lg hover:bg-secondary hover:text-primary transition duration-300 ease-in-out"
-          >
-            Calcular Total
-          </button>
-        </div>
-        {showWarning && (
-          <div className="fixed inset-0 flex items-center justify-center z-50">
-            <div className="modal-overlay fixed inset-0 bg-neutral-900 opacity-50"></div>
-            <div className="modal-content overflow-auto bg-background_dark text-white w-96 p-6 rounded-lg shadow-lg shadow-primary z-0">
-              <div className="text-center">
+      </div>
+
+      <div className="mb-6">
+        <Button onClick={handleCalculateTotal} />
+      </div>
+      {showWarning && (
+        <div className="fixed inset-0 flex flex-col-reverse md:flex-row items-center justify-center z-50">
+          <div className="modal-overlay fixed inset-0 bg-neutral-900 opacity-50"></div>
+          <div className="modal-content overflow-auto bg-background_light text-primary w-80 p-6 rounded-lg z-0 absolute">
+            <div className="text-center top-0">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-20 h-20 text-red-500 mx-auto"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                />
+              </svg>
+              <p className="text-2xl font-semibold mt-4">
+                Oops! Parece que há um problema.
+              </p>
+              <p className="text-lg text-primary mt-2">
+                Pelo menos um campo deve ter um valor para calcular.
+              </p>
+            </div>
+            <div className="absolute top-0 right-0">
+              <div className="cursor-pointer rounded-full bg-red-500 hover:bg-red-600 flex justify-center items-center w-12 h-12">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-20 h-20 text-red-500 mx-auto"
                   fill="none"
                   viewBox="0 0 24 24"
-                  strokeWidth="1.5"
                   stroke="currentColor"
+                  onClick={() => setShowWarning(false)}
+                  className="w-6 h-6 text-white"
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                    strokeWidth="1.5"
+                    d="M6 18L18 6M6 6l12 12"
                   />
                 </svg>
-                <p className="text-2xl font-semibold mt-4">
-                  Oops! Parece que há um problema.
-                </p>
-                <p className="text-lg text-white mt-2">
-                  Pelo menos um campo deve ter um valor para calcular.
-                </p>
-                <button
-                  onClick={() => setShowWarning(false)}
-                  className="bg-red-500 hover:bg-red-600 text-white text-lg font-semibold px-4 py-2 mt-4 rounded-full focus:outline-none focus:ring-2 focus:ring-red-500"
-                >
-                  Fechar
-                </button>
               </div>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </>
   );
 }
