@@ -16,8 +16,8 @@ export default function Home() {
       </h1>
       <InputNumber />
 
-      <div className=" " id="tabela" style={{ display: showTable ? "block" : "none" }}>
-        <div className="right-80 absolute">
+      <div className=" relative" id="tabela" style={{ display: showTable ? "block" : "none" }}>
+        <div className="-right-4 -top-4 absolute">
           <button
             className="cursor-pointer rounded-full shadow-sm bg-red-500 hover:bg-red-600 flex justify-center items-center w-8 h-8"
             onClick={toggleTable}
